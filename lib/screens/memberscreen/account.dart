@@ -20,6 +20,9 @@ class profile_screen extends StatelessWidget {
             decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: Color.fromARGB(255, 210, 206, 206)),
+                child: Center(
+                  child: Icon(Icons.person_2_rounded, size: 40, color: Colors.purple),
+                ),
           ),
         ),
         Padding(

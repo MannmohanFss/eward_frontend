@@ -37,11 +37,11 @@ class MyWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                               Text(users,style: TextStyle(fontSize: 15),),
-                              SizedBox(height: 4),
                               Text(":"),
                               Text(messgae),
                              
                              ],),
+                             SizedBox(height: 3),
                              Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                         
