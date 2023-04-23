@@ -31,7 +31,7 @@ class notificationview extends StatelessWidget {
                 String notification_updated = user['update_on'];
                 String notification_imgpath = user['img_path'];
                 return Card(
-                    elevation: 0,
+                    elevation: 5,
                     child: SizedBox(
                       height: 100,
                       child: ListTile(

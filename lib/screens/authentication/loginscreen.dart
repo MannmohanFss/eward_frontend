@@ -116,9 +116,9 @@ class loginscreen extends StatelessWidget {
                         height: 50,
                         width: 430,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(30),
                             gradient: const LinearGradient(colors: [
-                              Color.fromRGBO(143, 148, 251, 1),
+                              Color.fromRGBO(87, 90, 142, 1),
                               Color.fromRGBO(143, 148, 251, 2)
                             ])),
                         child: ElevatedButton(
@@ -133,7 +133,7 @@ class loginscreen extends StatelessWidget {
                             shadowColor:
                                 MaterialStateProperty.all(Colors.transparent),
                           ),
-                          child: const Text("Login"),
+                          child: const Text("Login", style: TextStyle(color: Colors.white),),
                         ),
                       )
                     ],

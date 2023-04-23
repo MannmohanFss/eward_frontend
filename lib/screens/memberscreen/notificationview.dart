@@ -28,29 +28,32 @@ class notificationview extends StatelessWidget {
                   String notification_created = user['created_on'];
                   String notification_updated = user['update_on'];
                   String notification_imgpath = user['img_path'];
-                  return Card(
-                      elevation: 0,
-                      child: SizedBox(
-                        height: 100,
-                        child: ListTile(
-                          leading:
-                              Image.asset("assets/images/notification.png"),
-                          title: Text(notification_title),
-                          trailing: Text(notification_updated),
-                          subtitle: Text(notification_desc,overflow: TextOverflow.ellipsis),
-                          onTap: () {
-                            Navigator.of(context)
-                                .push(MaterialPageRoute(builder: ((context) {
-                              return notificationscreen(
-                                  notification_title: notification_title,
-                                  notification_desc: notification_desc,
-                                  notification_created: notification_created,
-                                  notification_updated: notification_updated,
-                                  notification_imgpath: notification_imgpath);
-                            })));
-                          },
-                        ),
-                      ));
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Card(
+                        elevation: 5,
+                        child: SizedBox(
+                          height: 100,
+                          child: ListTile(
+                            leading:
+                                Icon(Icons.notifications_active, color: Colors.green,),
+                            title: Text(notification_title),
+                            trailing: Text(notification_updated),
+                            subtitle: Text(notification_desc,overflow: TextOverflow.ellipsis),
+                            onTap: () {
+                              Navigator.of(context)
+                                  .push(MaterialPageRoute(builder: ((context) {
+                                return notificationscreen(
+                                    notification_title: notification_title,
+                                    notification_desc: notification_desc,
+                                    notification_created: notification_created,
+                                    notification_updated: notification_updated,
+                                    notification_imgpath: notification_imgpath);
+                              })));
+                            },
+                          ),
+                        )),
+                  );
                 })
                 );
           } else if (snapshot.hasError) {

@@ -31,34 +31,37 @@ class compscreen extends StatelessWidget {
                     String complaint_updated = user['update_on'];
                     String complaint_imgpath = user['img_path'];
                     String complaint_status = user['status'];
-                    return Card(
-                      
-                        elevation: 0,
-                        child: SizedBox(
-                          height: 100,
-                          child: ListTile(
-                            leading:
-                                Image.asset("assets/images/notification.png"),
-                            title: Text(complaint_title),
-                            subtitle: Text(complaint_desc,
-                                overflow: TextOverflow.ellipsis),
-                            trailing: Text(complaint_updated),
-                            onTap: () {
-                              Navigator.of(context)
-                                  .push(MaterialPageRoute(builder: ((context) {
-                                return complaintscreen(
-                                  complaintId: complaint_id,
-                                  complaintTitle: complaint_title,
-                                  complaintDesc: complaint_desc,
-                                  complaintCreated: complaint_created,
-                                  complaintImgpath: complaint_imgpath,
-                                  complaintStatus: complaint_status,
-                                  complaintUpdated: complaint_updated,
-                                );
-                              })));
-                            },
-                          ),
-                        ));
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Card(
+                        
+                          elevation: 5,
+                          child: SizedBox(
+                            height: 100,
+                            child: ListTile(
+                              leading:
+                                  Icon(Icons.notification_important, color: Colors.green),
+                              title: Text(complaint_title),
+                              subtitle: Text(complaint_desc,
+                                  overflow: TextOverflow.ellipsis),
+                              trailing: Text(complaint_updated),
+                              onTap: () {
+                                Navigator.of(context)
+                                    .push(MaterialPageRoute(builder: ((context) {
+                                  return complaintscreen(
+                                    complaintId: complaint_id,
+                                    complaintTitle: complaint_title,
+                                    complaintDesc: complaint_desc,
+                                    complaintCreated: complaint_created,
+                                    complaintImgpath: complaint_imgpath,
+                                    complaintStatus: complaint_status,
+                                    complaintUpdated: complaint_updated,
+                                  );
+                                })));
+                              },
+                            ),
+                          )),
+                    );
                   }));
             } else if (snapshot.hasError) {
               return Text('Error: ${snapshot.error}');

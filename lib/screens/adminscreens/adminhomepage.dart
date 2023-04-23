@@ -35,7 +35,7 @@ class adminHomeScreen extends StatelessWidget {
                   String gender = user['gender'];
 
                   return Card(
-                      elevation: 0,
+                      elevation: 5,
                       child: SizedBox(
                         height: 100,
                         child: ListTile(

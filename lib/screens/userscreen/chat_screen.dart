@@ -19,6 +19,7 @@ class MyWidget extends StatelessWidget {
               final data = snapshot.data;
               return ListView.builder(
                   itemCount: data?.length ?? 0,
+                  shrinkWrap: true,
                   itemBuilder: ((BuildContext context, int index) {
                     final user = snapshot.data?[index];
                     String messgae = user['comment'];
@@ -27,35 +28,31 @@ class MyWidget extends StatelessWidget {
 
                     return Card(
                         elevation: 0,
-                        child: SizedBox(
-                            height: 50,
-                            
-                            child: Column(
-                              
-                              
-                              mainAxisAlignment:MainAxisAlignment.spaceEvenly ,
+                        child: Container(
+                          padding: EdgeInsets.all(3),
+                          child: Column(
+                            // mainAxisAlignment:MainAxisAlignment.spaceEvenly ,
+                            children: [
+                             Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                Text(users,style: TextStyle(fontSize: 15),),
-                                Text(":"),
-                                Text(messgae),
-
-                               ],)
-                               ,
-                               Text(" "),
-                               
-                               Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-
-                                 children: [
-                                  
-                                   Text(time),
-                                 ],
-                               )
-                              ],
-                            )));
+                              Text(users,style: TextStyle(fontSize: 15),),
+                              SizedBox(height: 4),
+                              Text(":"),
+                              Text(messgae),
+                             
+                             ],),
+                             Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                        
+                               children: [
+                                
+                                 Text(time),
+                               ],
+                             )
+                            ],
+                          ),
+                        ));
                   }));
             } else if (snapshot.hasError) {
               return Text('Error: ${snapshot.error}');

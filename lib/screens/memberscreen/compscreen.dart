@@ -71,13 +71,19 @@ class _complaintscreenState extends State<complaintscreen> {
                   ),
                 ),
                 Container(
-                  child: Image.network(
-                    '${ipaddress}${widget.complaintImgpath}',
-                    errorBuilder: (context, error, stackTrace) {
-                      return const Text("");
-                    },
+                  height: 250,
+                  padding: EdgeInsets.all(8),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: Image.network(
+                      '${ipaddress}${widget.complaintImgpath}',
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Text("");
+                      },
+                    ),
                   ),
                 ),
+                SizedBox(height: 5),
                 statusbar(states: int.parse(status)),
                 Container(
                   height: 350,
@@ -87,7 +93,6 @@ class _complaintscreenState extends State<complaintscreen> {
                     child: MyWidget(id: widget.complaintId),
                   ),
                 ),
-                
                 int.parse(status) != 3
                     ? Container(
                         padding: const EdgeInsets.fromLTRB(15, 15, 15, 30),
@@ -100,7 +105,6 @@ class _complaintscreenState extends State<complaintscreen> {
                               labelText: "Remark About complanit"),
                         ),
                       )
-                      
                     : Text("Complaint closed"),
                 int.parse(status) != 3
                     ? Container(
@@ -114,7 +118,6 @@ class _complaintscreenState extends State<complaintscreen> {
                             ])),
                         child: ElevatedButton(
                           onPressed: (() {
-                           
                             updatecomplaint(context);
                           }),
                           style: ButtonStyle(
